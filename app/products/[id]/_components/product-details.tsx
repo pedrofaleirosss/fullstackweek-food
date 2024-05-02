@@ -165,7 +165,7 @@ const ProductDetails = ({
             className="w-full font-semibold"
             onClick={handleAddToCartClick}
           >
-            Adicionar à sacola
+            Adicionar à Sacola
           </Button>
         </div>
       </div>
