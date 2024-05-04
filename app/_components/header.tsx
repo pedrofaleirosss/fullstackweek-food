@@ -21,9 +21,23 @@ import {
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Separator } from "./ui/separator";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/alert-dialog";
+import { useState } from "react";
 
 const Header = () => {
   const { data } = useSession();
+
+  const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState(false);
 
   const handleSignOutClick = () => signOut();
   const handleSignInClick = () => signIn();
@@ -90,9 +104,12 @@ const Header = () => {
             <Button
               variant="ghost"
               className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
+              asChild
             >
-              <HomeIcon size={16} />
-              <span className="blobk">Início</span>
+              <Link href="/">
+                <HomeIcon size={16} />
+                <span className="blobk">Início</span>
+              </Link>
             </Button>
 
             {data?.user && (
@@ -130,7 +147,7 @@ const Header = () => {
             <Button
               variant="ghost"
               className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
-              onClick={handleSignOutClick}
+              onClick={() => setIsConfirmationDialogOpen(true)}
             >
               <LogOutIcon size={16} />
               <span className="blobk">Sair da conta</span>
@@ -138,6 +155,26 @@ const Header = () => {
           )}
         </SheetContent>
       </Sheet>
+
+      <AlertDialog
+        open={isConfirmationDialogOpen}
+        onOpenChange={setIsConfirmationDialogOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Sair da conta</AlertDialogTitle>
+            <AlertDialogDescription>
+              Deseja mesmo sair da plataforma?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction onClick={handleSignOutClick}>
+              Sair
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
