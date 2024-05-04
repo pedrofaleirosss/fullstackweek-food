@@ -56,7 +56,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
   }
 
   return (
-    <div>
+    <div className="pb-2">
       {/* IMAGEM */}
       <RestaurantImage restaurant={restaurant} />
 
