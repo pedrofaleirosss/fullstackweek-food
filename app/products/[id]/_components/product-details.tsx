@@ -88,22 +88,24 @@ const ProductDetails = ({
     <>
       <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
         {/* RESTAURANTE */}
-        <Link
-          className="flex items-center gap-[0.375rem] px-5"
-          href={`/restaurants/${product.restaurant.id}`}
-        >
-          <div className="relative h-6 w-6">
+        <div className="flex items-center gap-[0.375rem] px-5">
+          <Link
+            className="relative h-6 w-6"
+            href={`/restaurants/${product.restaurant.id}`}
+          >
             <Image
               src={product.restaurant.imageUrl}
               alt={product.restaurant.name}
               fill
               className="rounded-full object-cover"
             />
-          </div>
-          <span className="text-xs text-muted-foreground">
-            {product.restaurant.name}
-          </span>
-        </Link>
+          </Link>
+          <Link href={`/restaurants/${product.restaurant.id}`}>
+            <span className="block text-xs text-muted-foreground">
+              {product.restaurant.name}
+            </span>
+          </Link>
+        </div>
 
         {/* NOME DO PRODUTO */}
         <h1 className="mb-2 mt-1 px-5 text-xl font-semibold">{product.name}</h1>
