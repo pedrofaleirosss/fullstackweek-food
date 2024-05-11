@@ -40,7 +40,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
         <div className="space-y-1">
           <h3 className="text-xs">{cartProduct.name}</h3>
           <div className="flex items-center gap-1">
-            <h4 className="text-sm font-semibold">
+            <h4 className="text-xs font-semibold">
               {formatCurrency(
                 calculateProductTotalPrice(cartProduct) * cartProduct.quantity,
               )}
@@ -79,11 +79,11 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
       {/* BOTÃO DE REMOVER */}
       <Button
         size="icon"
-        className="h-8 w-8 border border-solid border-muted-foreground"
+        className="h-7 w-7 border border-solid border-muted-foreground"
         variant="ghost"
         onClick={handleRemoveClick}
       >
-        <TrashIcon size={18} />
+        <TrashIcon size={16} />
       </Button>
     </div>
   );
