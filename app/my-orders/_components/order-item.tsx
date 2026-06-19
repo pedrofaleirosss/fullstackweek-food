@@ -101,12 +101,12 @@ const OrderItem = ({ order }: OrderItemProps) => {
         <div className="space-y-2">
           {order.products.map((product) => (
             <div key={product.id} className="flex items-center gap-2">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-muted-foreground">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-muted-foreground">
                 <span className="block text-xs text-white">
                   {product.quantity}
                 </span>
               </div>
-              <span className="blobk text-sm text-muted-foreground">
+              <span className="min-w-0 text-sm text-muted-foreground">
                 {product.product.name}
               </span>
             </div>
