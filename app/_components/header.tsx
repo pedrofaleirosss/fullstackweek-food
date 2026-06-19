@@ -46,7 +46,7 @@ const Header = () => {
   const handleSignInClick = () => signIn();
 
   return (
-    <div className="flex justify-between px-5 pt-6">
+    <header className="flex justify-between px-5 pt-6">
       <div className="relative h-[30px] w-[100px]">
         <Link href="/">
           <Image src="/logo.png" alt="FSW Food" fill className="object-cover" />
@@ -64,7 +64,7 @@ const Header = () => {
           </Button>
         </SheetTrigger>
 
-        <SheetContent className="w-[80vw]">
+        <SheetContent className="w-[80vw] sm:max-w-sm">
           <SheetHeader>
             <SheetTitle className="text-left">Menu</SheetTitle>
           </SheetHeader>
@@ -75,8 +75,12 @@ const Header = () => {
                 <Avatar>
                   <AvatarImage src={data.user.image as string | undefined} />
                   <AvatarFallback>
-                    {data?.user?.name?.split(" ")[0][0]}
-                    {data?.user?.name?.split(" ")[1][0]}
+                    {data.user.name
+                      ?.split(" ")
+                      .slice(0, 2)
+                      .map((name) => name[0])
+                      .join("")
+                      .toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
 
@@ -111,7 +115,7 @@ const Header = () => {
             >
               <Link href="/">
                 <HomeIcon size={16} />
-                <span className="blobk">Início</span>
+                <span className="block">Início</span>
               </Link>
             </Button>
 
@@ -133,7 +137,7 @@ const Header = () => {
                 >
                   <Link href="/my-orders">
                     <ScrollTextIcon size={16} />
-                    <span className="blobk">Meus Pedidos</span>
+                    <span className="block">Meus Pedidos</span>
                   </Link>
                 </Button>
 
@@ -144,7 +148,7 @@ const Header = () => {
                 >
                   <Link href="/my-favorite-restaurants">
                     <HeartIcon size={16} />
-                    <span className="blobk">Restaurantes Favoritos</span>
+                    <span className="block">Restaurantes Favoritos</span>
                   </Link>
                 </Button>
               </>
@@ -162,14 +166,14 @@ const Header = () => {
               onClick={() => setIsConfirmationDialogOpen(true)}
             >
               <LogOutIcon size={16} />
-              <span className="blobk">Sair da conta</span>
+              <span className="block">Sair da conta</span>
             </Button>
           )}
         </SheetContent>
       </Sheet>
 
       <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-        <SheetContent className="w-[80vw]">
+        <SheetContent className="w-[80vw] sm:max-w-sm">
           <SheetHeader>
             <SheetTitle className="text-left">Sacola</SheetTitle>
           </SheetHeader>
@@ -197,7 +201,7 @@ const Header = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </div>
+    </header>
   );
 };
 
