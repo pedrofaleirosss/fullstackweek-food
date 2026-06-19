@@ -7,6 +7,7 @@ import {
   LogOutIcon,
   MenuIcon,
   ScrollTextIcon,
+  ShoppingBagIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -32,12 +33,14 @@ import {
   AlertDialogTitle,
 } from "./ui/alert-dialog";
 import { useState } from "react";
+import Cart from "./cart";
 
 const Header = () => {
   const { data } = useSession();
 
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
     useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleSignOutClick = () => signOut();
   const handleSignInClick = () => signIn();
@@ -112,6 +115,15 @@ const Header = () => {
               </Link>
             </Button>
 
+            <Button
+              variant="ghost"
+              className="w-full justify-start space-x-3 rounded-full text-sm font-normal"
+              onClick={() => setIsCartOpen(true)}
+            >
+              <ShoppingBagIcon size={16} />
+              <span className="block">Sacola</span>
+            </Button>
+
             {data?.user && (
               <>
                 <Button
@@ -153,6 +165,16 @@ const Header = () => {
               <span className="blobk">Sair da conta</span>
             </Button>
           )}
+        </SheetContent>
+      </Sheet>
+
+      <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
+        <SheetContent className="w-[80vw]">
+          <SheetHeader>
+            <SheetTitle className="text-left">Sacola</SheetTitle>
+          </SheetHeader>
+
+          <Cart setIsOpen={setIsCartOpen} />
         </SheetContent>
       </Sheet>
 
