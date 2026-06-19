@@ -7,7 +7,7 @@ import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import { createOrder } from "../_actions/order";
 import { OrderStatus } from "@prisma/client";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Loader2 } from "lucide-react";
 import {
   AlertDialog,
@@ -33,12 +33,18 @@ const Cart = ({ setIsOpen }: CartProps) => {
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
     useState(false);
 
-  const { data } = useSession();
+  const { data, status } = useSession();
   const { products, subTotalPrice, totalPrice, totalDiscounts, clearCart } =
     useContext(CartContext);
 
   const handleFinishOrderClick = async () => {
-    if (!data?.user) return;
+    if (status === "loading") return;
+
+    if (!data?.user) {
+      return signIn("google", {
+        callbackUrl: "/",
+      });
+    }
 
     const restaurant = products[0].restaurant;
     try {
