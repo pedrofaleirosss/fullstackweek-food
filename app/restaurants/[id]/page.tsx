@@ -65,14 +65,14 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
   });
 
   return (
-    <div className="pb-2">
+    <div className="mx-auto w-full max-w-7xl pb-2">
       {/* IMAGEM */}
       <RestaurantImage
         restaurant={restaurant}
         userFavoriteRestaurants={userFavoriteRestaurants}
       />
 
-      <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
+      <div className="relative z-50 -mt-6 flex items-center justify-between rounded-t-3xl bg-white px-5 pt-5 md:px-8 lg:px-10">
         {/* IMAGEM E TÍTULO */}
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">
@@ -83,7 +83,9 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
               className="rounded-full object-cover"
             />
           </div>
-          <h1 className="text-xl font-semibold">{restaurant.name}</h1>
+          <h1 className="text-xl font-semibold md:text-2xl">
+            {restaurant.name}
+          </h1>
         </div>
 
         {/* AVALIAÇÃO */}
@@ -94,16 +96,16 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       </div>
 
       {/* DETALHES DA ENTREGA */}
-      <div className="px-5">
+      <div className="px-5 md:px-8 lg:px-10">
         <DeliveryDetails restaurant={restaurant} />
       </div>
 
       {/* CATEGORIAS */}
-      <div className="mt-3 flex gap-4 overflow-x-scroll px-5 [&::-webkit-scrollbar]:hidden">
+      <div className="mt-3 flex gap-4 overflow-x-auto px-5 md:flex-wrap md:overflow-visible md:px-8 lg:px-10 [&::-webkit-scrollbar]:hidden">
         {restaurant.categories.map((category) => (
           <div
             key={category.id}
-            className="min-w-[167px] rounded-lg bg-[#F4F4F4] py-1 text-center"
+            className="min-w-[167px] rounded-lg bg-[#F4F4F4] py-1 text-center md:min-w-0 md:px-4 md:py-2"
           >
             <span className="text-sm text-muted-foreground">
               {category.name}
@@ -115,15 +117,23 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       {/* MAIS PEDIDOS */}
       <div className="mt-6 space-y-4">
         {/* TODO: mostrar produtos mais pedidos quando implementarmos a realização dos pedidos */}
-        <h2 className="px-5 font-semibold">Mais Pedidos</h2>
-        <ProductList products={restaurant.products} />
+        <h2 className="px-5 font-semibold md:px-8 md:text-lg lg:px-10">
+          Mais Pedidos
+        </h2>
+        <div className="md:px-3 lg:px-5">
+          <ProductList products={restaurant.products} />
+        </div>
       </div>
 
       {/* PRODUTOS POR CATEGORIA */}
       {restaurant.categories.map((category) => (
         <div className="mt-6 space-y-4" key={category.id}>
-          <h2 className="px-5 font-semibold">{category.name}</h2>
-          <ProductList products={category.products} />
+          <h2 className="px-5 font-semibold md:px-8 md:text-lg lg:px-10">
+            {category.name}
+          </h2>
+          <div className="md:px-3 lg:px-5">
+            <ProductList products={category.products} />
+          </div>
         </div>
       ))}
 

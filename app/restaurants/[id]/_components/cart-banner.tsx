@@ -28,37 +28,41 @@ const CartBanner = ({ restaurant }: CartBannerProps) => {
   if (!restaurantHasProductsOnCart) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 z-50 w-full border-t border-solid border-muted bg-white p-5 pt-3">
-      <div className="flex items-center justify-between">
-        {/* PREÇO */}
-        <div>
-          <span className="text-xs text-muted-foreground">
-            Total sem entrega
-          </span>
-          <h3 className="font-semibold">
-            {formatCurrency(totalPrice - Number(restaurant.deliveryFee))}
-            <span className="text-xs font-normal text-muted-foreground">
-              {" "}
-              / {totalQuantity} {totalQuantity > 1 ? "itens" : "item"}{" "}
+    <>
+      <div className="h-24" />
+
+      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-solid border-muted bg-white p-5 pt-3">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between md:px-3 lg:px-5">
+          {/* PREÇO */}
+          <div>
+            <span className="text-xs text-muted-foreground">
+              Total sem entrega
             </span>
-          </h3>
+            <h3 className="font-semibold">
+              {formatCurrency(totalPrice - Number(restaurant.deliveryFee))}
+              <span className="text-xs font-normal text-muted-foreground">
+                {" "}
+                / {totalQuantity} {totalQuantity > 1 ? "itens" : "item"}{" "}
+              </span>
+            </h3>
+          </div>
+
+          {/* BOTÃO */}
+
+          <Button onClick={() => setIsCartOpen(true)}>Ver Sacola</Button>
+
+          <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
+            <SheetContent className="w-[80vw] sm:max-w-sm">
+              <SheetHeader>
+                <SheetTitle className="text-left">Sacola</SheetTitle>
+              </SheetHeader>
+
+              <Cart setIsOpen={setIsCartOpen} />
+            </SheetContent>
+          </Sheet>
         </div>
-
-        {/* BOTÃO */}
-
-        <Button onClick={() => setIsCartOpen(true)}>Ver Sacola</Button>
-
-        <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-          <SheetContent className="w-[80vw]">
-            <SheetHeader>
-              <SheetTitle className="text-left">Sacola</SheetTitle>
-            </SheetHeader>
-
-            <Cart setIsOpen={setIsCartOpen} />
-          </SheetContent>
-        </Sheet>
       </div>
-    </div>
+    </>
   );
 };
 
