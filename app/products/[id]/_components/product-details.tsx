@@ -85,10 +85,10 @@ const ProductDetails = ({
     });
 
   return (
-    <>
-      <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
+    <div className="lg:w-1/2">
+      <div className="relative z-50 -mt-6 rounded-t-3xl bg-white py-5 lg:mt-0 lg:rounded-none lg:py-8">
         {/* RESTAURANTE */}
-        <div className="flex items-center gap-[0.375rem] px-5">
+        <div className="flex items-center gap-[0.375rem] px-5 lg:px-8">
           <Link
             className="relative h-6 w-6"
             href={`/restaurants/${product.restaurant.id}`}
@@ -108,10 +108,12 @@ const ProductDetails = ({
         </div>
 
         {/* NOME DO PRODUTO */}
-        <h1 className="mb-2 mt-1 px-5 text-xl font-semibold">{product.name}</h1>
+        <h1 className="mb-2 mt-1 px-5 text-xl font-semibold lg:px-8 lg:text-2xl">
+          {product.name}
+        </h1>
 
         {/* PREÇO DO PRODUTO E QUANTIDADE */}
-        <div className="flex justify-between px-5">
+        <div className="flex justify-between px-5 lg:px-8">
           {/* PREÇO COM DESCONTO */}
           <div>
             <div className="flex items-center gap-2">
@@ -149,24 +151,26 @@ const ProductDetails = ({
         </div>
 
         {/* DETALHES DA ENTREGA */}
-        <div className="px-5">
+        <div className="px-5 lg:px-8">
           <DeliveryDetails restaurant={product.restaurant} />
         </div>
 
         {/* DESCRIÇÃO DO PRODUTO */}
-        <div className="mt-6 space-y-3 px-5">
+        <div className="mt-6 space-y-3 px-5 lg:px-8">
           <h3 className="font-semibold">Sobre</h3>
           <p className="text-sm text-muted-foreground">{product.description}</p>
         </div>
 
         {/* SUCOS */}
         <div className="mt-6 space-y-3">
-          <h3 className="px-5 font-semibold">Sucos</h3>
-          <ProductList products={complementaryProducts} />
+          <h3 className="px-5 font-semibold lg:px-8">Sucos</h3>
+          <div className="lg:px-3">
+            <ProductList products={complementaryProducts} />
+          </div>
         </div>
 
         {/* BOTÃO */}
-        <div className="mt-6 px-5">
+        <div className="mt-6 px-5 lg:px-8">
           <Button
             className="w-full font-semibold"
             onClick={handleAddToCartClick}
@@ -177,7 +181,7 @@ const ProductDetails = ({
       </div>
 
       <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-        <SheetContent className="w-[80vw]">
+        <SheetContent className="w-[80vw] sm:max-w-sm">
           <SheetHeader>
             <SheetTitle className="text-left">Sacola</SheetTitle>
           </SheetHeader>
@@ -208,7 +212,7 @@ const ProductDetails = ({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </>
+    </div>
   );
 };
 

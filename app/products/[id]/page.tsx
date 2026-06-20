@@ -38,8 +38,8 @@ const ProductPage = async ({ params: { id } }: ProductPageProps) => {
   });
 
   return (
-    <div>
-      {/* IMAGEM */}
+    <div className="mx-auto w-full max-w-7xl lg:flex lg:min-h-screen">
+      {/* IMAGEM DO PRODUTO */}
       <ProductImage product={product} />
 
       {/* DETALHES DO PRODUTO */}
