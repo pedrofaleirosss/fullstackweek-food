@@ -8,6 +8,7 @@ import { db } from "./_lib/prisma";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
+import Footer from "./_components/footer";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -51,8 +52,9 @@ const Home = async () => {
   const { products, pizzasCategory, burguerCategory } = await fetch();
 
   return (
-    <main className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl">
       <Header />
+
       <div className="px-5 pt-6">
         <Search />
       </div>
@@ -114,7 +116,9 @@ const Home = async () => {
         </div>
         <RestaurantList />
       </div>
-    </main>
+
+      <Footer />
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import Footer from "@/app/_components/footer";
 import Header from "@/app/_components/header";
 import RestaurantItem from "@/app/_components/restaurant-item";
 import { authOptions } from "@/app/_lib/auth";
@@ -36,6 +37,8 @@ const RecommendedRestaurants = async () => {
           ))}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

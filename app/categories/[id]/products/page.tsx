@@ -1,3 +1,4 @@
+import Footer from "@/app/_components/footer";
 import Header from "@/app/_components/header";
 import ProductItem from "@/app/_components/product-item";
 import { db } from "@/app/_lib/prisma";
@@ -34,6 +35,7 @@ const CategoriesPage = async ({ params: { id } }: CategoriesPageProps) => {
   return (
     <div className="mx-auto w-full max-w-7xl">
       <Header />
+
       <div className="px-5 py-6 ">
         <h2 className="mb-6 text-lg font-semibold md:text-xl">
           {category.name}
@@ -49,6 +51,8 @@ const CategoriesPage = async ({ params: { id } }: CategoriesPageProps) => {
           ))}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

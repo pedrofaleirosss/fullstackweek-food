@@ -127,7 +127,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
 
       {/* PRODUTOS POR CATEGORIA */}
       {restaurant.categories.map((category) => (
-        <div className="mt-6 space-y-4" key={category.id}>
+        <div className="mt-6 space-y-4 pb-6" key={category.id}>
           <h2 className="px-5 font-semibold md:px-8 md:text-lg lg:px-10">
             {category.name}
           </h2>

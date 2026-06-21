@@ -4,6 +4,7 @@ import { authOptions } from "../_lib/auth";
 import { notFound } from "next/navigation";
 import Header from "../_components/header";
 import RestaurantItem from "../_components/restaurant-item";
+import Footer from "../_components/footer";
 
 const MyFavoriteRestaurants = async () => {
   const session = await getServerSession(authOptions);
@@ -23,28 +24,32 @@ const MyFavoriteRestaurants = async () => {
 
   return (
     <div className="mx-auto w-full max-w-7xl">
-      <Header />
+      <div className="min-h-screen">
+        <Header />
 
-      <div className="px-5 py-6">
-        <h2 className="mb-6 text-lg font-semibold md:text-xl">
-          Restaurantes Favoritos
-        </h2>
+        <div className="px-5 py-6">
+          <h2 className="mb-6 text-lg font-semibold md:text-xl">
+            Restaurantes Favoritos
+          </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {userFavoriteRestaurants.length > 0 ? (
-            userFavoriteRestaurants.map(({ restaurant }) => (
-              <RestaurantItem
-                key={restaurant.id}
-                restaurant={restaurant}
-                className="min-w-full max-w-full"
-                userFavoriteRestaurants={userFavoriteRestaurants}
-              />
-            ))
-          ) : (
-            <h3 className="font-medium">Nenhum restaurante favoritado.</h3>
-          )}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {userFavoriteRestaurants.length > 0 ? (
+              userFavoriteRestaurants.map(({ restaurant }) => (
+                <RestaurantItem
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                  className="min-w-full max-w-full"
+                  userFavoriteRestaurants={userFavoriteRestaurants}
+                />
+              ))
+            ) : (
+              <h3 className=" text-gray-500">Nenhum restaurante favoritado.</h3>
+            )}
+          </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
