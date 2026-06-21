@@ -44,25 +44,23 @@ Este também foi um dos meus primeiros projetos utilizando **Next.js, TypeScript
 
 ### Desktop
 
-<div align="center">
-  <img src="./docs/images/home-desktop.png" alt="Página inicial do FSW Food no desktop" width="100%" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="./docs/images/produto-desktop.png" alt="Página de produto do FSW Food no desktop" width="49%" />
-  <img src="./docs/images/restaurante-desktop.png" alt="Página de restaurante do FSW Food no desktop" width="49%" />
-</div>
+<img width="1917" height="951" alt="Página inicial do FSW Food no desktop" src="https://github.com/user-attachments/assets/7d388e36-a2ce-407a-b151-a965c2cb75ac" />
+<img width="1917" height="952" alt="Página de uma categoria do FSW Food no desktop" src="https://github.com/user-attachments/assets/1b5db0e8-ee90-4c4d-9f86-79001199672c" />
+<img width="1918" height="951" alt="Página de produto do FSW Food no desktop" src="https://github.com/user-attachments/assets/c6937cd1-8b90-426a-b73f-d65e3ba49f1d" />
+<img width="1920" height="954" alt="Página de restaurante do FSW Food no desktop" src="https://github.com/user-attachments/assets/91887f83-3230-470a-8a3d-99f8f5842f68" />
 
 ### Mobile
 
-<div align="center">
-  <img src="./docs/images/home-mobile.png" alt="Página inicial do FSW Food no celular" width="24%" />
-  <img src="./docs/images/restaurante-mobile.png" alt="Página de restaurante do FSW Food no celular" width="24%" />
-  <img src="./docs/images/produto-mobile.png" alt="Página de produto do FSW Food no celular" width="24%" />
-  <img src="./docs/images/sacola-mobile.png" alt="Sacola do FSW Food no celular" width="24%" />
-</div>
+<img width="24%" alt="Página inicial do FSW Food no celular" src="https://github.com/user-attachments/assets/ea215970-930d-4ed0-a792-59779f168714" />
+<img width="24%" alt="Página inicial do FSW Food no celular com o rodapé" src="https://github.com/user-attachments/assets/6b6923aa-533c-44e8-9f60-e8430eb4aab8" />
+<img width="24%" alt="Menu lateral do FSW Food no celular" src="https://github.com/user-attachments/assets/2d40ca45-9239-4f0e-a4e0-d0dc5d669324" />
+<img width="24%" alt="Página de restaurantes encontrados" src="https://github.com/user-attachments/assets/4b56b246-d28c-4609-8636-23cd36fe82f6" />
+<img width="24%" alt="Página de uma categoria do FSW Food no celular" src="https://github.com/user-attachments/assets/6687c12a-6bfc-4cc3-9e5a-e8fe97e67d4b" />
+<img width="24%" alt="Página de produto do FSW Food no celular" src="https://github.com/user-attachments/assets/1e7ae755-5860-48e8-b4cb-ef6f11ee74af" />
+<img width="24%" alt="Sacola do FSW Food no celular" src="https://github.com/user-attachments/assets/877e7439-dc5b-46dc-9734-f55ba749f410" />
+<img width="24%" alt="Página de restauntante" src="https://github.com/user-attachments/assets/bf334894-1a98-45cd-ba80-dc37ab781be9" />
+<img width="24%" alt="Página de meus pedidos" src="https://github.com/user-attachments/assets/cf73e3b1-e78b-4630-85dd-0363407e9dc1" />
+<img width="24%" alt="Página de restaurantes favoritos" src="https://github.com/user-attachments/assets/cf4f4a38-1d55-4885-8fa7-0c288bf02d51" />
 
 ---
 
