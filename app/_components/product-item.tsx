@@ -31,6 +31,7 @@ const ProductItem = ({ product, className }: ProductItemProps) => {
             alt={product.name}
             fill
             className="rounded-lg object-cover shadow-md"
+            sizes="(max-width: 767px) 150px, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, 20vw"
           />
 
           {product.discountPercentage > 0 && (

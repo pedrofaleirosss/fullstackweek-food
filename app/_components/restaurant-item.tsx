@@ -51,12 +51,16 @@ const RestaurantItem = ({
       <div className="w-full space-y-3">
         {/* IMAGEM */}
         <div className="relative h-[136px] w-full">
-          <Link href={`/restaurants/${restaurant.id}`}>
+          <Link
+            href={`/restaurants/${restaurant.id}`}
+            className="relative block h-full w-full"
+          >
             <Image
               src={restaurant.imageUrl}
               fill
               className="rounded-lg object-cover"
               alt={restaurant.name}
+              sizes="(max-width: 767px) 266px, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
             />
           </Link>
 

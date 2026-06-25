@@ -98,6 +98,7 @@ const ProductDetails = ({
               alt={product.restaurant.name}
               fill
               className="rounded-full object-cover"
+              sizes="24px"
             />
           </Link>
           <Link href={`/restaurants/${product.restaurant.id}`}>

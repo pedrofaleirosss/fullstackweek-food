@@ -49,7 +49,13 @@ const Header = () => {
     <header className="flex justify-between px-5 pt-6">
       <div className="relative h-[30px] w-[100px]">
         <Link href="/">
-          <Image src="/logo.png" alt="FSW Food" fill className="object-cover" />
+          <Image
+            src="/logo.png"
+            alt="FSW Food"
+            width={201}
+            height={62}
+            className="object-cover"
+          />
         </Link>
       </div>
 
